@@ -82,8 +82,12 @@ obligation for whichever project takes transport diversity further.
 
 ## Getting a shell
 
-Two open decisions before that is worth doing, both recorded in `PORTFOLIO.md` section 9:
-whether this is its own project or a module of `namespy`, and whether `namespy`'s wire
-codec is reused or imported as a dependency. The reuse question decides whether
-`localns` is a thin resolver over a shared codec or a second DNS implementation, and the
-second option is the one to avoid.
+Three open decisions before that is worth doing, all recorded in `PORTFOLIO.md` section 9:
+whether this is its own project or a module of `namespy`, whether `namespy`'s wire
+codec is reused or imported as a dependency, and what it is called at all.
+
+The reuse question decides whether `localns` is a thin resolver over a shared codec or a
+second DNS implementation, and the second option is the one to avoid. The naming question is
+separate and more urgent: the note above found five live one-keystroke neighbours, which is
+the shape of problem that got `derkit` rejected, and a directory is cheap to rename while a
+published name is not.
