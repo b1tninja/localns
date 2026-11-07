@@ -63,14 +63,20 @@ obligation for whichever project takes transport diversity further.
 
 | Id | Spec | Status | Where | Evidence |
 |---|---|---|---|---|
-| `ln.trust-label` | Model, all protocols | [ ] | `trust` | `test_answer_carries_its_protocol` |
-| `ln.mdns-resolve` | RFC 6762 sections 5, 7 | [ ] | `mdns` | `test_query_on_link` |
-| `ln.llmnr-resolve` | RFC 4795 sections 2.1.1, 3 | [ ] | `llmnr` | `test_llmnr_answer_is_labelled_unauthenticated` |
-| `ln.nbns-resolve` | RFC 1002 sections 14.2, 4.2.1 | [ ] | `nbns` | `test_name_trailing_bytes_and_node_type` |
-| `ln.ordering` | - | [ ] | `resolver` | `test_lookup_order_and_stop_conditions` |
-| `ln.no-cross-cache` | RFC 4795 section 4 | [ ] | `cache` | `test_llmnr_and_dns_caches_are_separate` |
-| `ln.timeout-ethics` | RFC 4795 section 3.2 | [ ] | `resolver` | `test_no_burst_on_the_link` |
-| `ln.announce` | RFC 6762 section 8.3, RFC 1002 section 4.2.1 | [ ] | `announce` | `test_conflict_detection_before_claim` |
+| `ln.trust-label` | Model, all protocols | [ ] | `trust` | `tests/test_trust.py::test_answer_carries_its_protocol` (to be written) |
+| `ln.mdns-resolve` | RFC 6762 sections 5, 7 | [ ] | `mdns` | `tests/test_mdns.py::test_query_on_link` (to be written) |
+| `ln.llmnr-resolve` | RFC 4795 sections 2.1.1, 3 | [ ] | `llmnr` | `tests/test_llmnr.py::test_llmnr_answer_is_labelled_unauthenticated` (to be written) |
+| `ln.nbns-resolve` | RFC 1001 section 14, RFC 1002 sections 4.1, 4.2.1.3 | [ ] | `nbns` | `tests/test_nbns.py::test_name_trailing_bytes_and_node_type` (to be written) |
+| `ln.ordering` | - | [ ] | `resolver` | `tests/test_resolver.py::test_lookup_order_and_stop_conditions` (to be written) |
+| `ln.no-cross-cache` | RFC 4795 section 5.4 | [ ] | `cache` | `tests/test_cache.py::test_llmnr_and_dns_caches_are_separate` (to be written) |
+| `ln.timeout-ethics` | RFC 4795 sections 2.7, 7 | [ ] | `resolver` | `tests/test_resolver.py::test_no_burst_on_the_link` (to be written) |
+| `ln.announce` | RFC 6762 section 8.3, RFC 1002 section 4.2.1 | [ ] | `announce` | `tests/test_announce.py::test_conflict_detection_before_claim` (to be written) |
+
+Spec sections read from the RFC corpus through rfclib on 2026-11-06. RFC 4795 has no section 3.2:
+cache separation is section 5.4 and the retransmission and jitter limits are section 2.7, with the
+constants in section 7. RFC 1002 has no section 14: NetBIOS name encoding is RFC 1001 section 14,
+the packet name format is RFC 1002 section 4.1, and the owner node type is the NB_FLAGS ONT field of
+RFC 1002 section 4.2.1.3. A test marked `(to be written)` does not exist yet; no shell exists to hold it.
 
 ## Non-goals
 
